@@ -1,0 +1,37 @@
+.frame{
+    display: grid;
+    border:1px solid black;
+    width: 50%;
+    height: 30%;
+    min-height: 250px;
+    min-width: 500px;
+    
+    --headerPer : 10%;
+    grid-template-rows : var(--headerPer) repeat(
+        calc( var(--urlCount) + 1),calc(calc(
+            100% - var(--headerPer) - (var(--rowGap) * (var(--displayCount) - 1))
+        ) / (var(--displayCount) - 1))
+    ); 
+    grid-template-columns: repeat(2,calc(50% - (var(--colGap) * 1)));
+    overflow-y:var(--scroll);
+    --rowGap : 2%;
+    row-gap: var(--rowGap);
+    --colGap : 2%;
+    column-gap: var(--colGap);
+    
+}
+.title{
+    color:white;
+    text-align: right;
+    grid-column: 1 / 3;
+}
+.add{
+    width: 20%;
+    margin-inline-start: auto;
+}
+.header{
+    display: grid;
+    grid-template-columns : 0px repeat(2,calc(100% / 2));
+    grid-template-rows: 100%;
+    grid-column : 1/ 3;
+}
